@@ -20,14 +20,14 @@ User story - I want a pokemon battle simulator that allows me to battle pokemon 
 * Version Conrol
 * Zoom screenshare
 
-## Website
+## Portfolio
 https://gtn-git.github.io/CHALLENGE_2/
 
 ## GitHub URL
 https://gtn-git.github.io/pokebattle/
 
-## Portfolio URL
-https://gtn-git.github.io/CHALLENGE_2/
+## Git Repo
+https://github.com/GTN-git/pokebattle
 
 
 ![image](https://user-images.githubusercontent.com/84994258/127947224-681c00ed-5986-4dbc-9674-1b9f38eae5e5.png)
