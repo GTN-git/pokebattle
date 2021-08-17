@@ -1,6 +1,6 @@
 var player;
 var rival;
-var arenaLocation;
+
 var playerMoveSet = [];
 var rivalMoveSet = [];
 var winners;
@@ -61,7 +61,7 @@ function calculateDmg(move) {
 function loadData() {
     player = JSON.parse(sessionStorage.getItem("player"));
     rival = JSON.parse(sessionStorage.getItem("rival"));
-    arenaLocation = JSON.parse(sessionStorage.getItem("location"));
+
 
     var stageEl = $("#stage");
     var playerHPBarEl = $("#player-hp-bar");
@@ -70,7 +70,7 @@ function loadData() {
     var playerNameEl = $("#player-name");
     var playerPokemonEl = $("#player-pokemon")
 
-    stageEl.css("background-image", "url(" + arenaLocation + ")");
+
     playerCurrentHPEl[0].textContent = playerMaxHPEl[0].textContent = playerHPBarEl[0].value = playerHPBarEl[0].max = player.pokemon.stats.health;
     playerPokemonEl[0].alt = playerNameEl[0].textContent = player.pokemon.name[0].toUpperCase() + player.pokemon.name.substring(1);
     playerPokemonEl[0].src = player.pokemon.sprite;
@@ -148,7 +148,6 @@ function endMatch(target) {
     setTimeout(function() {
         sessionStorage.removeItem("player");
         sessionStorage.removeItem("rival");
-        sessionStorage.removeItem("location");
         window.location = "./win.html";
     }, 5000);
 };

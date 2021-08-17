@@ -9,14 +9,9 @@ var rival = {
 }
 
 var pokemon;
-var location;
 var movesList = [];
-var coords = [ "27.17400606300552,78.0422513023935",
-               "51.17877711750124,-1.826188341180512",
-               "35.6244244,139.7755421",
-               "43.610491,-116.197901" ];
-var key = "key=AIzaSyCYGcyytvi9evk7Yc5TKac02OSXkrFUxZI";
-var arenaLocation;
+
+
 
 function getPokemon(trainer, choice) {
   if(choice === null)
@@ -77,7 +72,7 @@ function getPokemon(trainer, choice) {
         if(trainer === "rival") {
           rival.pokemon = pokemon;
           sessionStorage.setItem("rival", JSON.stringify(rival));
-          getLocation();
+          startMatch();
         } else {
           player.pokemon = pokemon;
           sessionStorage.setItem("player", JSON.stringify(player));
@@ -87,20 +82,7 @@ function getPokemon(trainer, choice) {
   });
 }
 
-function getLocation() {
-  var randomNum = Math.floor(Math.random() * coords.length);
-  fetch("https://maps.googleapis.com/maps/api/streetview?location=" + coords[randomNum] + "&size=1400x1400&heading=70&pitch=0&" + key).then(function(response) { 
-  if(response.ok) {
-      arenaLocation = "https://maps.googleapis.com/maps/api/streetview?location=" + coords[randomNum] + "&size=1400x1400&heading=70&pitch=0&" + key;
-      sessionStorage.setItem("location", JSON.stringify(arenaLocation));
-      startMatch();
-    } else {
-      var errorEl = $("#error-modal");
-      errorEl.addClass("is-active");
-      $("#error-message").html("<p><strong>API Error:</strong> " + response.status + " - " + response.message + "</p>");
-    }
-  });
-}
+
 
 function startMatch() {
   var versusModalEl = $("#versus-modal");
